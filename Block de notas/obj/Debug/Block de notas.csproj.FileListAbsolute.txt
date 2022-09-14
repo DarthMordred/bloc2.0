@@ -1,0 +1,12 @@
+C:\Users\magr_\source\repos\Block de notas\bin\Debug\Block de notas.exe.config
+C:\Users\magr_\source\repos\Block de notas\bin\Debug\Block de notas.exe
+C:\Users\magr_\source\repos\Block de notas\bin\Debug\Block de notas.pdb
+C:\Users\magr_\source\repos\Block de notas\obj\Debug\Block de notas.csproj.AssemblyReference.cache
+C:\Users\magr_\source\repos\Block de notas\obj\Debug\Block de notas.csproj.SuggestedBindingRedirects.cache
+C:\Users\magr_\source\repos\Block de notas\obj\Debug\Block_de_notas.Form1.resources
+C:\Users\magr_\source\repos\Block de notas\obj\Debug\Block_de_notas.Properties.Resources.resources
+C:\Users\magr_\source\repos\Block de notas\obj\Debug\Block de notas.csproj.GenerateResource.cache
+C:\Users\magr_\source\repos\Block de notas\obj\Debug\Block de notas.csproj.CoreCompileInputs.cache
+C:\Users\magr_\source\repos\Block de notas\obj\Debug\Block de notas.exe
+C:\Users\magr_\source\repos\Block de notas\obj\Debug\Block de notas.pdb
+C:\Users\magr_\source\repos\Block de notas\obj\Debug\Block_de_notas.MensajeError.resources
