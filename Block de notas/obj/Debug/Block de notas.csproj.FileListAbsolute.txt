@@ -10,3 +10,16 @@ C:\Users\magr_\source\repos\Block de notas\obj\Debug\Block de notas.csproj.CoreC
 C:\Users\magr_\source\repos\Block de notas\obj\Debug\Block de notas.exe
 C:\Users\magr_\source\repos\Block de notas\obj\Debug\Block de notas.pdb
 C:\Users\magr_\source\repos\Block de notas\obj\Debug\Block_de_notas.MensajeError.resources
+C:\Users\emmft\OneDrive\Documentos\UASLP\7mo Semestre\Interfaces Gráficas\bloc2.0\Block de notas\bin\Debug\Block de notas.exe.config
+C:\Users\emmft\OneDrive\Documentos\UASLP\7mo Semestre\Interfaces Gráficas\bloc2.0\Block de notas\bin\Debug\Block de notas.exe
+C:\Users\emmft\OneDrive\Documentos\UASLP\7mo Semestre\Interfaces Gráficas\bloc2.0\Block de notas\bin\Debug\Block de notas.pdb
+C:\Users\emmft\OneDrive\Documentos\UASLP\7mo Semestre\Interfaces Gráficas\bloc2.0\Block de notas\obj\Debug\Block de notas.csproj.AssemblyReference.cache
+C:\Users\emmft\OneDrive\Documentos\UASLP\7mo Semestre\Interfaces Gráficas\bloc2.0\Block de notas\obj\Debug\Block de notas.csproj.SuggestedBindingRedirects.cache
+C:\Users\emmft\OneDrive\Documentos\UASLP\7mo Semestre\Interfaces Gráficas\bloc2.0\Block de notas\obj\Debug\Block_de_notas.BuscadorForm.resources
+C:\Users\emmft\OneDrive\Documentos\UASLP\7mo Semestre\Interfaces Gráficas\bloc2.0\Block de notas\obj\Debug\Block_de_notas.Form1.resources
+C:\Users\emmft\OneDrive\Documentos\UASLP\7mo Semestre\Interfaces Gráficas\bloc2.0\Block de notas\obj\Debug\Block_de_notas.MensajeError.resources
+C:\Users\emmft\OneDrive\Documentos\UASLP\7mo Semestre\Interfaces Gráficas\bloc2.0\Block de notas\obj\Debug\Block_de_notas.Properties.Resources.resources
+C:\Users\emmft\OneDrive\Documentos\UASLP\7mo Semestre\Interfaces Gráficas\bloc2.0\Block de notas\obj\Debug\Block de notas.csproj.GenerateResource.cache
+C:\Users\emmft\OneDrive\Documentos\UASLP\7mo Semestre\Interfaces Gráficas\bloc2.0\Block de notas\obj\Debug\Block de notas.csproj.CoreCompileInputs.cache
+C:\Users\emmft\OneDrive\Documentos\UASLP\7mo Semestre\Interfaces Gráficas\bloc2.0\Block de notas\obj\Debug\Block de notas.exe
+C:\Users\emmft\OneDrive\Documentos\UASLP\7mo Semestre\Interfaces Gráficas\bloc2.0\Block de notas\obj\Debug\Block de notas.pdb

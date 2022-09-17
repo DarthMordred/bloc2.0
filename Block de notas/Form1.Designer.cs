@@ -43,13 +43,16 @@
             this.verToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ayudaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.RTB = new System.Windows.Forms.RichTextBox();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.tbBlocText = new System.Windows.Forms.TextBox();
             this.Nuevo = new System.Windows.Forms.ToolStripButton();
             this.Abrir = new System.Windows.Forms.ToolStripButton();
             this.Guardar = new System.Windows.Forms.ToolStripButton();
             this.Guardar_Como = new System.Windows.Forms.ToolStripButton();
-            this.RTB = new System.Windows.Forms.RichTextBox();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.RTB1 = new System.Windows.Forms.TextBox();
+            this.iconBtnBuscar = new System.Windows.Forms.ToolStripButton();
+            this.iconBtnBuscarSig = new System.Windows.Forms.ToolStripButton();
+            this.iconBtnBuscarAnt = new System.Windows.Forms.ToolStripButton();
             this.menuStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -123,18 +126,21 @@
             this.buscarToolStripMenuItem.Name = "buscarToolStripMenuItem";
             this.buscarToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
             this.buscarToolStripMenuItem.Text = "Buscar";
+            this.buscarToolStripMenuItem.Click += new System.EventHandler(this.buscarToolStripMenuItem_Click);
             // 
             // buscarSiguienteToolStripMenuItem
             // 
             this.buscarSiguienteToolStripMenuItem.Name = "buscarSiguienteToolStripMenuItem";
             this.buscarSiguienteToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
             this.buscarSiguienteToolStripMenuItem.Text = "Buscar siguiente";
+            this.buscarSiguienteToolStripMenuItem.Click += new System.EventHandler(this.buscarSiguienteToolStripMenuItem_Click);
             // 
             // buscarAnteriorToolStripMenuItem
             // 
             this.buscarAnteriorToolStripMenuItem.Name = "buscarAnteriorToolStripMenuItem";
             this.buscarAnteriorToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
             this.buscarAnteriorToolStripMenuItem.Text = "Buscar anterior";
+            this.buscarAnteriorToolStripMenuItem.Click += new System.EventHandler(this.buscarAnteriorToolStripMenuItem_Click);
             // 
             // formatoToolStripMenuItem
             // 
@@ -160,12 +166,44 @@
             this.Nuevo,
             this.Abrir,
             this.Guardar,
-            this.Guardar_Como});
+            this.Guardar_Como,
+            this.iconBtnBuscar,
+            this.iconBtnBuscarSig,
+            this.iconBtnBuscarAnt});
             this.toolStrip1.Location = new System.Drawing.Point(0, 24);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(800, 25);
             this.toolStrip1.TabIndex = 2;
             this.toolStrip1.Text = "toolStrip1";
+            // 
+            // RTB
+            // 
+            this.RTB.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.RTB.Location = new System.Drawing.Point(0, 49);
+            this.RTB.Name = "RTB";
+            this.RTB.Size = new System.Drawing.Size(800, 401);
+            this.RTB.TabIndex = 3;
+            this.RTB.Text = "";
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.tbBlocText);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(0, 49);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(800, 401);
+            this.panel1.TabIndex = 4;
+            // 
+            // tbBlocText
+            // 
+            this.tbBlocText.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tbBlocText.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbBlocText.Location = new System.Drawing.Point(0, 0);
+            this.tbBlocText.Multiline = true;
+            this.tbBlocText.Name = "tbBlocText";
+            this.tbBlocText.Size = new System.Drawing.Size(800, 401);
+            this.tbBlocText.TabIndex = 0;
+            this.tbBlocText.TextChanged += new System.EventHandler(this.tbBlocText_TextChanged);
             // 
             // Nuevo
             // 
@@ -207,32 +245,35 @@
             this.Guardar_Como.Text = "Guardar Como";
             this.Guardar_Como.Click += new System.EventHandler(this.guardarComoToolStripMenuItem_Click);
             // 
-            // RTB
+            // iconBtnBuscar
             // 
-            this.RTB.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.RTB.Location = new System.Drawing.Point(0, 49);
-            this.RTB.Name = "RTB";
-            this.RTB.Size = new System.Drawing.Size(800, 401);
-            this.RTB.TabIndex = 3;
-            this.RTB.Text = "";
+            this.iconBtnBuscar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.iconBtnBuscar.Image = global::Block_de_notas.Properties.Resources.buscar;
+            this.iconBtnBuscar.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.iconBtnBuscar.Name = "iconBtnBuscar";
+            this.iconBtnBuscar.Size = new System.Drawing.Size(23, 22);
+            this.iconBtnBuscar.Text = "Buscar";
+            this.iconBtnBuscar.Click += new System.EventHandler(this.buscarToolStripMenuItem_Click);
             // 
-            // panel1
+            // iconBtnBuscarSig
             // 
-            this.panel1.Controls.Add(this.RTB1);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(0, 49);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(800, 401);
-            this.panel1.TabIndex = 4;
+            this.iconBtnBuscarSig.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.iconBtnBuscarSig.Image = global::Block_de_notas.Properties.Resources.buscar_sig;
+            this.iconBtnBuscarSig.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.iconBtnBuscarSig.Name = "iconBtnBuscarSig";
+            this.iconBtnBuscarSig.Size = new System.Drawing.Size(23, 22);
+            this.iconBtnBuscarSig.Text = "Buscar Siguiente";
+            this.iconBtnBuscarSig.Click += new System.EventHandler(this.buscarSiguienteToolStripMenuItem_Click);
             // 
-            // RTB1
+            // iconBtnBuscarAnt
             // 
-            this.RTB1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.RTB1.Location = new System.Drawing.Point(0, 0);
-            this.RTB1.Multiline = true;
-            this.RTB1.Name = "RTB1";
-            this.RTB1.Size = new System.Drawing.Size(800, 401);
-            this.RTB1.TabIndex = 0;
+            this.iconBtnBuscarAnt.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.iconBtnBuscarAnt.Image = global::Block_de_notas.Properties.Resources.buscar_ant;
+            this.iconBtnBuscarAnt.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.iconBtnBuscarAnt.Name = "iconBtnBuscarAnt";
+            this.iconBtnBuscarAnt.Size = new System.Drawing.Size(23, 22);
+            this.iconBtnBuscarAnt.Text = "Buscar Anterior";
+            this.iconBtnBuscarAnt.Click += new System.EventHandler(this.buscarAnteriorToolStripMenuItem_Click);
             // 
             // Form1
             // 
@@ -280,7 +321,10 @@
         private System.Windows.Forms.ToolStripButton Guardar_Como;
         private System.Windows.Forms.RichTextBox RTB;
         private System.Windows.Forms.Panel panel1;
-        public System.Windows.Forms.TextBox RTB1;
+        public System.Windows.Forms.TextBox tbBlocText;
+        private System.Windows.Forms.ToolStripButton iconBtnBuscar;
+        private System.Windows.Forms.ToolStripButton iconBtnBuscarSig;
+        private System.Windows.Forms.ToolStripButton iconBtnBuscarAnt;
     }
 }
 
