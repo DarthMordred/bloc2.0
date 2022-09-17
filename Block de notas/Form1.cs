@@ -16,16 +16,130 @@ namespace Block_de_notas
     {
 
         private bool nuevoCreando = false;
-       MensajeError m = null;
+        MensajeError m = null;
+        BuscadorForm buscador = null;
         private bool isOpening=false;   
         private bool msjErrorisClosing=false;
         private string camino="";
         private string textWC="";
+        private string todoTexto, txtAdelante, txtDetras; //Texto adelante y detrás del cursor.
+        private string memBuscador = "";
+
         public Form1()
         {
             InitializeComponent();
             ReiniciarCamino();
+            initBusc();
         }
+
+        private void initBusc()
+        {
+            buscarToolStripMenuItem.Enabled = false;
+            buscarSiguienteToolStripMenuItem.Enabled = false;
+            buscarAnteriorToolStripMenuItem.Enabled = false;
+        }
+
+        private void tbBlocText_TextChanged(object sender, EventArgs e)
+        {
+            buscarToolStripMenuItem.Enabled = tbBlocText.Text.Length > 0;
+            buscarSiguienteToolStripMenuItem.Enabled = tbBlocText.Text.Length > 0;
+            buscarAnteriorToolStripMenuItem.Enabled = tbBlocText.Text.Length > 0;
+
+            todoTexto = tbBlocText.Text;
+        }
+
+        public void setMemBuscador(string s)
+        {
+            memBuscador = s;
+        }
+
+        private void buscarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (Program.buscIsClosed())
+            {
+                buscador = new BuscadorForm(this, memBuscador);
+                Program.buscOpenWindow();
+                buscador.Show();
+            }
+            else
+            {
+                if (buscador.WindowState == FormWindowState.Minimized)
+                {
+                    buscador.WindowState = FormWindowState.Normal;
+                }
+                buscador.Focus();
+            }
+        }
+
+        private void buscarSiguienteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (memBuscador == "")
+            {
+                buscarToolStripMenuItem_Click(sender, e);
+            }
+            else
+            {
+                buscaAdelante(memBuscador);
+            }
+        }
+
+        private void buscarAnteriorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (memBuscador == "")
+            {
+                buscarToolStripMenuItem_Click(sender, e);
+            }
+            else
+            {
+                buscaAtras(memBuscador);
+            }
+        }
+
+        private void acomodaCursor()
+        {
+            if (tbBlocText.SelectionLength != 0)
+            {
+                tbBlocText.SelectionStart += tbBlocText.SelectionLength;
+            }
+        }
+
+        public void buscaAdelante(string txt_aBusc)
+        {
+            acomodaCursor();
+            txtAdelante = todoTexto.Substring(tbBlocText.SelectionStart).ToLower();
+            if (txtAdelante.Contains(txt_aBusc))
+            {
+                int offset = txtAdelante.IndexOf(txt_aBusc);
+                tbBlocText.SelectionStart += offset;
+                tbBlocText.SelectionLength = txt_aBusc.Length;
+                tbBlocText.HideSelection = false; //Mostramos la selección aunque la ventana no esté enfocada
+            }
+            else
+            {
+                tbBlocText.SelectionLength = 0;
+                string noEnconMssg = "No se encontró \"" + txt_aBusc + "\"";
+                MessageBox.Show(noEnconMssg);
+            }
+        }
+
+        public void buscaAtras(string txt_aBusc)
+        {
+            txtDetras = todoTexto.Substring(0, tbBlocText.SelectionStart).ToLower();
+            if (txtDetras.Contains(txt_aBusc))
+            {
+                int offset = txtDetras.LastIndexOf(txt_aBusc);
+                tbBlocText.SelectionStart = offset;
+                tbBlocText.SelectionLength = txt_aBusc.Length;
+                tbBlocText.HideSelection = false; //Mostramos la selección aunque la ventana no esté enfocada
+            }
+            else
+            {
+                tbBlocText.SelectionLength = 0;
+                string noEnconMssg = "No se encontró \"" + txt_aBusc + "\"";
+                MessageBox.Show(noEnconMssg);
+            }
+        }
+
         public void msjErrorAbre()
         {
             msjErrorisClosing = true;
@@ -115,7 +229,7 @@ namespace Block_de_notas
                 {
                     st = File.ReadAllText(op.FileName);
                     camino = op.FileName;
-                    RTB1.Text = st;
+                    tbBlocText.Text = st;
                     this.textWC = st;
 
                 }
@@ -124,7 +238,7 @@ namespace Block_de_notas
         }
         private bool comprobarCambios()
         {
-            if (RTB1.Text != this.textWC)
+            if (tbBlocText.Text != this.textWC)
             {
                 return (true);
             }
@@ -161,7 +275,7 @@ namespace Block_de_notas
         }
         public void nuevoArch()
         {
-                RTB1.Clear();
+                tbBlocText.Clear();
             if (msjErrorisClosing == true)
             {
                 Close();
@@ -174,15 +288,13 @@ namespace Block_de_notas
         }
         private void guardarToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            GuardarForm1(RTB1.Text);
+            GuardarForm1(tbBlocText.Text);
         }
 
         private void guardarComoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            GuardarComo(RTB1.Text);
+            GuardarComo(tbBlocText.Text);
         }
-
- 
 
         private void abrirToolStripMenuItem1_Click(object sender, EventArgs e)
         {
@@ -205,7 +317,7 @@ namespace Block_de_notas
                 {
                     s = File.ReadAllText(op.FileName);
                     camino = op.FileName;
-                    RTB1.Text = s;
+                    tbBlocText.Text = s;
                     this.textWC = s;
                 }
      

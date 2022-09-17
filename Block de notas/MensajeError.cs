@@ -26,7 +26,7 @@ namespace Block_de_notas
 
         private void button1_Click(object sender, EventArgs e)
         {
-            f.btnGuardarMensajeError(f.RTB1.Text);
+            f.btnGuardarMensajeError(f.tbBlocText.Text);
            
             
             Close();
